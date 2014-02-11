@@ -106,51 +106,49 @@ set(ax(2), 'Position',ax2_pos);
 nbins = (stop-start) * bps;
 
 psth=[];
-xbins = linspace(start, stop, (stop-start)*bps);    
-    for moo=1:nreps
-            
-            newtoes = toes{moo}{1}(find(toes{moo}{:}>=0));%only use spikes after stim starts
-            newtoes = newtoes(find(newtoes<=stimdur)); %get rid of spikes after stim over
-            %newtoes = round(newtoes*1000);  %may want to take this out
-            %newtoes = (newtoes*1000); 
-            %tpsth=zeros(size(xbins));
-            atoes=toes{moo}{1};
-            
-            if isempty(atoes)==1
-                
-                tpsth=zeros(1,length(xbins));
-            else 
-                
-                tpsth=histc(atoes, xbins);
-            
-                
-                
-            end
-            psth(moo,:) = tpsth';
-            
-            
-         
+xbins = linspace(start, stop, (stop-start)*bps);
+for moo=1:nreps
+    
+    newtoes = toes{moo}{1}(find(toes{moo}{:}>=0));%only use spikes after stim starts
+    newtoes = newtoes(find(newtoes<=stimdur)); %get rid of spikes after stim over
+    %newtoes = round(newtoes*1000);  %may want to take this out
+    %newtoes = (newtoes*1000);
+    %tpsth=zeros(size(xbins));
+    atoes=toes{moo}{1};
+    
+    if isempty(atoes)==1
+        
+        tpsth=zeros(1,length(xbins));
+    else
+        
+        tpsth=histc(atoes, xbins);
+        
+        
+        
     end
-  
-   basepsth=mean(psth(basereps,:)./(binsize/1000));
-   gzpsth=mean(psth(gzreps,:)./(binsize/1000));
-   recpsth=mean(psth(recreps,:)./(binsize/1000));
-   hold on;
-   h=area(xbins,basepsth);
-   set(h,'facecolor','k')
-   alpha(0.8)
+    psth(moo,:) = tpsth';
+   
+end
+
+basepsth=mean(psth(basereps,:)./(binsize/1000));
+gzpsth=mean(psth(gzreps,:)./(binsize/1000));
+recpsth=mean(psth(recreps,:)./(binsize/1000));
+hold on;
+h=area(xbins,basepsth);
+set(h,'facecolor','k')
+alpha(0.8)
 %    h=area(xbins,gzpsth);
 %    set(h,'facecolor','r','edgecolor','w')
 %    alpha(0.8)
 %    h=area(xbins,recpsth);
 %    set(h,'facecolor','g','edgecolor','w')
 %    alpha(0.8)
-%    
-   plot(xbins,gzpsth,'r','linewidth',1) 
-   plot(xbins,recpsth,'g','linewidth',1) 
-   
-   maxall=max([basepsth gzpsth recpsth]);
- 
+%
+plot(xbins,gzpsth,'r','linewidth',1)
+plot(xbins,recpsth,'g','linewidth',1)
+
+maxall=max([basepsth gzpsth recpsth]);
+
 if isempty(find(blocktypes==3))==0
     gbpsth=mean(psth(gbreps,:)./(binsize/1000));
     plot(xbins,gbpsth,'m','linewidth',1)

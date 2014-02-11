@@ -22,6 +22,7 @@ for i=1:length(files)
     
     
     rasterionto(files(i).name,start,stop, blocksize,blocktype,sitetype,smooth,doprintout,dosave)
+%     psth = FanoFormat_ionto(files(i).name,start,stop, blocksize,blocktype,sitetype,smooth,doprintout,dosave)
     
     
 end
