@@ -19,7 +19,7 @@ close all
 % cd /home/jason/data/iontoncm/B444/Left_R-500_L1000/Z2450/ss001
 % batchrasterionto(-2,12,10,[1 2 5],'mu',0,1)
 
-cd /home/jason/data/iontoncm/B445/Left_R-200_L1000/Z1550/ss001
+cd /Users/kperks/GitHub/iontoncm/B445/Left_R-200_L1000/Z1550/ss001
 batchrasterionto(-2,12,10,[1 2 5],'mu',0,0)
 % what are the "start and stop" and blocksize is 10... but there are 30
 % trials?
@@ -118,7 +118,7 @@ cd /home/jason/data/iontoncm/B466/Left_R-200_L1000/Z2210/ss001/
 batchrasterionto(-2,7,10,[1 2 5 4 24 5 3 5],'mu',0,1)
 cd /home/jason/data/iontoncm/B466/Left_R-200_L1000/Z2250/ss001/
 batchrasterionto(-2,7,10,[1 2 5],'mu',0,1)
-cd /home/jason/data/iontoncm/B466/Left_R-200_L1000/Z2311/ss001/
+cd /Users/kperks/GitHub/iontoncm/B466/Left_R-200_L1000/Z2311/ss001/
 batchrasterionto(-2,7,10,[1 2 5 4 24 5],'su',0,1)
 cd /home/jason/data/iontoncm/B466/Left_R-200_L1000/Z2430/ss001/
 batchrasterionto(-2,7,10,[1 2 5 4 5],'mu',0,1)
